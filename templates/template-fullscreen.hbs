@@ -1,0 +1,44 @@
+<section class="amp-viewer amp-fullscreen-viewer {{touch}}">
+    <header>
+    <h3>{{rangeName}}: {{productName}}</h3>
+     <div class="amp-toplinks-container">
+            <div class="amp-toplinks-wrapper">
+                <div class="amp-toplinks amp-close">{{> icons-close }}</div>
+                <div class="amp-toplinks amp-zoom-out">{{> icons-zoom-out }}</div>
+                <div class="amp-toplinks amp-zoom-in">{{> icons-zoom-in }}</div>
+            </div>
+        </div>
+    </header>
+    <div class="amp-main-container">
+        <ul class="amp-viewer-main">
+            {{#each items}}
+               {{renderPartial '_template-main-item' item=this templates=../templates productName=../productName}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="amp-nav-container">
+        <div class="amp-navigation-wrapper">
+            
+            <div class="amp-prev amp-nav-prev amp-nav-button">
+                <div class="amp-svg-icon-wrapper">
+                {{> icons-caret-left }}
+                </div>
+            </div>
+            <div class="amp-nav-thumbs">
+                <ul class="amp-navigation-main">
+                    {{#each items}}
+                        {{renderPartial '_template-nav-item' item=this templates=../templates}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="amp-next amp-nav-next amp-nav-button">
+                <div class="amp-svg-icon-wrapper">
+                {{> icons-caret-right }}
+                </div>
+            </div>
+
+            {{> _template-quicklinks }}
+        </div>
+    </div>
+</section>

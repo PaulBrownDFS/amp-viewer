@@ -1,0 +1,26 @@
+{
+    "node": false,
+    "browser": true,
+    "esnext": false,
+    "bitwise": true,
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": true,
+    "sub": true,
+    "trailing": true,
+    "smarttabs": true,
+    "globals": {
+        "module": true,
+        "require": true
+    },
+    "globalstrict": true,
+    "strict": false
+}

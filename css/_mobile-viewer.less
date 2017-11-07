@@ -1,0 +1,198 @@
+@mobile: ~"(min-width: 560px)";
+@mobile-480: ~"(max-width: 480px)";
+@mobile-320: ~"(max-width: 320px)";
+
+@mobile-viewer-size: auto;
+@nav-container-height: 45px;
+
+@nav-button-width-mobile: 25px;
+@nav-thumb-height-desktop: auto;
+
+@nav-width-container: auto;
+@icon-size-mobile: 35px;
+
+@nav-container-height-480: 38px;
+
+@nav-link-mobile: 16px;
+@nav-link-margin-mobile: 10px;
+@nav-links-mobile-width: (@nav-link-mobile+@nav-link-margin-mobile) * 4;
+
+@nav-wrapper-width: @nav-links-mobile-width + (@nav-button-width-mobile*2);
+@quicklinks-wrapper-width: 100%;
+
+.amp-mobile-viewer {
+  min-width: @mobile-viewer-size;
+  width: @mobile-viewer-size;
+
+  .noselect();
+
+  box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .amp-slide {
+    .noselect();
+  }
+
+  .amp-quicklinks-container {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right:5px;
+    .amp-quicklinks-wrapper {
+      .clearfix();
+      width: @quicklinks-wrapper-width;
+      .amp-quicklink {
+        width: @icon-size-mobile;
+        height: @icon-size-mobile;
+        float: right;
+        cursor: pointer;
+        display: none;
+        margin: 0 0 10px 10px;
+
+        svg {
+          width: @icon-size-mobile;
+          height: @icon-size-mobile;
+          color: @color-grey-hue2;
+          fill: @color-grey-hue2;
+        }
+
+      }
+    }
+
+  }
+  .amp-toplinks-container {
+      .amp-toplinks-wrapper{
+          .clearfix();
+          margin:5px 5px 5px 0;
+      }
+    .amp-toplinks {
+      width: @icon-size-mobile;
+      height: @icon-size-mobile;
+      float: right;
+      cursor: pointer;
+      margin-left:10px;
+      svg {
+        width: @icon-size-mobile;
+        height: @icon-size-mobile;
+        color: @color-grey-hue2;
+        fill: @color-grey-hue2;
+      }
+    }
+  }
+  .amp-main-container {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+
+  .amp-viewer-main {
+    width: 100%;
+    height: 100%;
+  }
+
+  .amp-nav-container {
+    display: table;
+    width: 100%;
+
+    .amp-navigation-wrapper {
+      display: table-row;
+    }
+
+    .amp-navigation-main {
+      box-sizing: content-box;
+    }
+    .amp-nav-button {
+      display: table-cell;
+      vertical-align: middle;
+      width: @nav-button-width-mobile;
+      cursor: pointer;
+
+      svg {
+        color: @color-purple-hue1;
+        fill: @color-purple-hue1;
+        width: @nav-button-width-mobile;
+      }
+    }
+
+    .amp-nav-links {
+      width: @nav-links-mobile-width;
+      display: table-cell;
+      vertical-align: middle;
+
+      .amp-slide {
+        width: @nav-link-mobile;
+        &.amp-nav-link-container {
+          margin: 0 5px;
+          .amp-nav-link {
+            height: 100%;
+            cursor: pointer;
+            background-color: @color-grey;
+            border-radius: 50%;
+          }
+        }
+
+        &.amp-selected {
+          .amp-nav-link {
+            background-color: @color-grey-hue2;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @mobile {
+  .amp-mobile-viewer {
+    .amp-nav-container {
+      position: relative;
+      .amp-navigation-container {
+        width: @nav-wrapper-width;
+        margin: auto;
+      }
+      .amp-quicklinks-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media @mobile-480 {
+  .amp-mobile-viewer {
+    .amp-quicklinks-container {
+      .amp-quicklinks-wrapper {
+        .amp-quicklink {
+          width: @icon-size-mobile;
+          height: @icon-size-mobile;
+
+          svg {
+            width: @icon-size-mobile;
+            height: @icon-size-mobile;
+          }
+
+          &.amp-quicklink-spinset {
+            width: @icon-size-mobile;
+            svg {
+              width: @icon-size-mobile;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @mobile-320 {
+  .amp-mobile-viewer {
+    .amp-navigation-container {
+      margin-top: 3px;
+    }
+
+    .amp-nav-container .amp-nav-button svg {
+      width: 20px
+    }
+  }
+}
+

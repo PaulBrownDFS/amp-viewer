@@ -1,0 +1,234 @@
+@vjs-font-path: 'assets/font';
+@font-face{
+  font-family: 'VideoJS';
+  src: url('@{vjs-font-path}/vjs.eot');
+  src: url('@{vjs-font-path}/vjs.eot?#iefix') format('embedded-opentype'),
+  url('@{vjs-font-path}/vjs.woff') format('woff'),
+  url('@{vjs-font-path}/vjs.ttf') format('truetype'),
+  url('@{vjs-font-path}/vjs.svg#icomoon') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@spinner3-icon: "\e01e";
+.animation (@string: spin 1s infinite linear) {
+  /* animation *///
+  -webkit-animation: @string;
+  -moz-animation: @string;
+  -o-animation: @string;
+  animation: @string;
+}
+
+
+.amp-video-holder {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    margin: auto;
+    cursor: default !important;
+    .vjs-scrubbing {
+        .vjs-big-play-button {
+            display: none !important;
+        }
+    }
+    .amp-video {
+        height: 100%;
+        margin: auto;
+        video::-webkit-media-controls-overlay-play-button {
+            display: none !important;
+        }
+        video::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
+    }
+    .video-js {
+        background-color: @color-white;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+        // hide the fullscreen button and compensate layout with the volume control
+        .vjs-fullscreen-control {
+            display: none;
+        }
+        .vjs-volume-control {
+            margin-right: 20px;
+        }
+
+      &.vjs-has-started{
+        .vjs-poster{
+          display:none;
+        }
+      }
+
+        &.vjs-paused {
+            .vjs-big-play-button {
+                display: block;
+                background: fade(@color-grey-hue2, 50%);
+            }
+        }
+
+        .vjs-control:focus:before, .vjs-control:hover:before {
+            text-shadow: none;
+        }
+
+        .vjs-poster {
+            outline: none;
+            box-sizing: border-box;
+            padding: 0 5px;
+            background-color: #fff;
+        }
+
+        .vjs-control-bar {
+            .noselect();
+            background: fade(@color-grey-hue2, 70%);
+            cursor: default;
+        }
+
+        .vjs-control {
+            &:hover {
+                &:before {
+                    text-shadow: none;
+                }
+            }
+        }
+
+        .vjs-live-controls {
+            display: none;
+        }
+
+        .vjs-slider-handle {
+            left: 0%;
+
+            &:before {
+                content: '';
+                background: @color-grey;
+                height: 12px;
+                width: 12px;
+                border-radius: 6px;
+                box-shadow: none;
+                transform: rotate(0deg);
+            }
+        }
+
+        .vjs-progress-control {
+            height: 10px;
+            top: -10px;
+            .vjs-load-progress {
+                background: fade(@color-grey, 20%);
+            }
+            .vjs-play-progress {
+                background: @color-purple-hue1;
+            }
+
+            [aria-valuenow^="99"],
+            [aria-valuenow="100"] {
+                .vjs-slider-handle {
+                    left: 100% !important;
+                    &:before {
+                        margin-left: -12px;
+                    }
+                }
+            }
+        }
+
+        .vjs-volume-control{
+            .vjs-slider-handle {
+                left: 90%;
+            }
+        }
+
+        .vjs-volume-level {
+            height: 0.7em;
+            width: 95%;
+            background: @color-purple-hue1;
+        }
+        .vjs-seek-handle {
+            top: -1px;
+        }
+        .vjs-slider {
+            background: fade(@color-grey-hue2, 50%);
+        }
+    }
+
+
+  /* Loading Spinner
+    --------------------------------------------------------------------------------
+    */
+
+  .vjs-loading-spinner {
+    /* Should be hidden by default *///
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 4em;
+    line-height: 1;
+    width: 1em;
+    height: 1em;
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+    opacity: 0.75;
+  }
+
+  /* Show the spinner when waiting for data and seeking to a new time */
+  .vjs-waiting .vjs-loading-spinner,
+  .vjs-seeking .vjs-loading-spinner {
+    display: block !important;
+
+    /* only animate when showing because it can be processor heavy *///
+    .animation(spin 1.5s infinite linear);
+  }
+
+  /* Errors are unrecoverable without user interaction so hide the spinner */
+  .vjs-error .vjs-loading-spinner {
+    display: none;
+
+    /* ensure animation doesn't continue while hidden *///
+    .animation(none);
+  }
+
+  .vjs-default-skin .vjs-loading-spinner:before {
+    content: @spinner3-icon;
+    font-family: VideoJS;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    text-shadow: 0em 0em 0.1em #000;
+  }
+
+  @-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(359deg); }
+  }
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(359deg); }
+  }
+  @-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(359deg); }
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); }
+  }
+
+}
+
+

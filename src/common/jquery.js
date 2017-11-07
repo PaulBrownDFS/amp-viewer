@@ -1,0 +1,3 @@
+var $ = window.$;
+
+module.exports = $;

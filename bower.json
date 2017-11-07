@@ -1,0 +1,11 @@
+{
+  "name": "client-viewers-dfs",
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "videojs": "4.12.5",
+    "jasmine-jquery": "~1.7.0",
+    "jquery": "~1.9",
+    "jquery-ui": "latest"
+  }
+}

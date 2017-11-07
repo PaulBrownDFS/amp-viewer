@@ -1,0 +1,22 @@
+<h1>Amplience DFS Viewer</h1>
+
+<h2>Integration Debug View</h2>
+<ul class="key-value-pair-list">
+{{#each integrationPoints}}
+    <li class="key-value-pair">
+        <span class="key">{{key}}</span>
+        <span class="value"><pre>{{value}}</pre></span>
+    </li>
+{{/each}}
+</ul>
+
+<h2>Viewer Options</h2>
+<ul class="key-value-pair-list">
+    {{#each viewerOptions}}
+        <li class="key-value-pair">
+            <span class="key">{{key}}</span>
+            <span class="value"><pre>{{value}}</pre></span>
+        </li>
+    {{/each}}
+</ul>
+

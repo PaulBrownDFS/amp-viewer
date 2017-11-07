@@ -1,0 +1,41 @@
+<section class="amp-viewer amp-desktop-viewer {{touch}}">
+    <header class="amp-header">
+        <div class="amp-header-wrapper">
+            <div class="amp-header-product-title">
+                <h3>{{rangeName}}: {{productName}}</h3>
+            </div>
+            <div class="amp-roundels"></div>
+        </div>
+    </header>
+
+    <div class="amp-main-container">
+        <ul class="amp-viewer-main">
+            {{#each items}}
+                {{renderPartial '_template-main-item' item=this templates=../templates productName=../productName}}
+            {{/each}}
+        </ul>
+    </div>
+    <div class="amp-nav-container">
+        <div class="amp-navigation-wrapper">
+            <div class="amp-prev amp-nav-prev amp-nav-button amp-moz-invisible">
+                <div class="amp-svg-icon-wrapper">
+                {{> icons-caret-left }}
+                </div>
+            </div>
+            <div class="amp-nav-thumbs">
+                <ul class="amp-navigation-main">
+                    {{#each items}}
+                        {{renderPartial '_template-nav-item' item=this templates=../templates}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="amp-next amp-nav-next amp-nav-button amp-moz-invisible">
+                <div class="amp-svg-icon-wrapper">
+                {{> icons-caret-right }}
+                </div>
+            </div>
+            {{> _template-quicklinks }}
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,30 @@
+<li>
+    <div class="amp-thumb-image-container amp-moz-invisible">
+        {{#if item.recliner}}
+            <div class="amp-icon amp-icon-recliner">{{> icons-recliner }}</div>
+            <img src="{{item.src}}/1?{{templates.imageThumb}}" class="amp-main-img">
+        {{else}}
+            {{#if item.box}}
+                <div class="amp-icon amp-icon-box-open">{{> icons-box-open }}</div>
+                <img src="{{item.src}}/1?{{templates.imageThumb}}" class="amp-main-img">
+            {{else}}
+                {{#if item.set}}
+                    <div class="amp-icon amp-icon-360">{{> icons-360 }}</div>
+                    <img src="{{item.src}}/1?{{templates.imageThumb}}" class="amp-main-img">
+                {{else}}
+                    {{#if item.media}}
+                        <div class="amp-icon amp-icon-video">{{> icons-video }}</div>
+                        <img src="{{item.src}}?{{templates.imageThumb}}" class="amp-main-img">
+                    {{else}}
+                        {{#if item.content}}
+                            <div class="amp-icon amp-icon-webgl">{{> icons-webgl }}</div>
+                            <div class="amp-main-img"></div>
+                        {{else}}
+                            <img src="{{item.src}}?{{templates.imageThumb}}" class="amp-main-img">
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    </div>
+</li>

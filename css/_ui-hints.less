@@ -1,0 +1,86 @@
+@import "_mixins";
+
+@color-ui-hint-background: fade(white,60%);
+@color-ui-hint-foreground: grey;
+
+@ui-hint-icon-size: 90px;
+@ui-hint-smaller-icon-size: 50px;
+@ui-hint-medium-icon-size: 70px;
+
+// show or hide ui hints depending on top level CSS class `amp-ui-hints`
+.amp-cover-box {
+  display: none;
+}
+&.amp-ui-hints {
+  .amp-cover-box {
+    display: table-cell;
+  }
+}
+
+.amp-cover-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+  z-index: 11;
+
+  .hidden {
+    display: none !important;
+  }
+
+  .amp-message {
+    position: absolute;
+    min-width: 120px;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    padding: 15px;
+    text-align: center;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+
+    color: @color-ui-hint-foreground;
+    background-color: @color-ui-hint-background;
+
+    font-family: @font-family-main;
+    font-size: @font-size-body;
+
+    .noselect();
+
+    .amp-message-tagline {
+      white-space: nowrap;
+    }
+
+    .amp-message-icon {
+        width: @ui-hint-icon-size;
+        margin: 10px auto 0 auto;
+
+        &.amp-icon-360 {
+            margin-top: -15px!important;
+            margin-bottom: -25px!important;
+        }
+        &.amp-icon-recliner{
+            margin-top: 0px;
+            margin-bottom: -8px;
+            width: 62px;
+        }
+        &.amp-icon-webgl{
+            margin-top:0;
+            margin-bottom:-15px;
+            width: @ui-hint-medium-icon-size;
+        }
+        svg {
+            color: @color-ui-hint-foreground;
+            fill: @color-ui-hint-foreground;
+            border: 0; 
+            background: transparent;
+        }
+    }
+  }
+}

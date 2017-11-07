@@ -1,0 +1,106 @@
+<li>
+    {{#if item.recliner}}
+       <ul class="amp-recliner amp-ui-hint">
+            {{#item.set.items}}
+                <li>
+                    <div class="amp-image-container">
+                        <span class="amp-centerer"></span>
+                        {{#if templates.screenWidth}}
+                            <img data-amp-dimensions='[{"w" : {"domName" : "window", "domProp" : "width"}}]' data-amp-src="{{src}}?{{templates.imageMain}}" class="amp-main-img">
+                        {{else}}
+                            <img data-amp-src="{{src}}?{{../templates.imageMain}}" class="amp-main-img">
+                        {{/if}}
+                    </div>
+                </li>
+            {{/item.set.items}}
+        </ul>
+        <div class="amp-cover-box amp-exit-prompt hidden">
+            <div class="amp-message">
+                <span class="amp-message-tagline">Double tap to exit</span>
+            </div>
+        </div>
+        <div class="amp-cover-box amp-double-tap-prompt">
+            <div class="amp-message">
+                <span class="amp-message-tagline">Double tap for Recliner spin</span>
+                <div class="amp-message-icon amp-icon-recliner">{{> icons-recliner }}</div>
+            </div>
+        </div>
+    {{else}}
+           {{#if item.box}}
+               <ul class="amp-box">
+                    {{#item.set.items}}
+                        <li>
+                            <div class="amp-image-container">
+                                <span class="amp-centerer"></span>
+                                {{#if templates.screenWidth}}
+                                    <img data-amp-dimensions='[{"w" : {"domName" : "window", "domProp" : "width"}}]' data-amp-src="{{src}}?{{../templates.imageMain}}" class="amp-main-img">
+                                {{else}}
+                                    <img data-amp-src="{{src}}?{{../templates.imageMain}}" class="amp-main-img">
+                                {{/if}}
+                            </div>
+                        </li>
+                    {{/item.set.items}}
+                </ul>
+            {{else}}
+                {{#if item.set}}
+                    <ul class="amp-spinset amp-ui-hint">
+                        {{#item.set.items}}
+                            <li>
+                                <div class="amp-image-container">
+                                    <span class="amp-centerer"></span>
+                                    {{#if templates.screenWidth}}
+                                        <img data-amp-dimensions='[{"w" : {"domName" : "window", "domProp" : "width"}}]' data-amp-src="{{src}}?{{../templates.imageMain}}" class="amp-zoomable amp-main-img">
+                                    {{else}}
+                                        <img data-amp-src="{{src}}?{{../templates.imageMain}}" class="amp-zoomable amp-main-img">
+                                    {{/if}}
+                                </div>
+                            </li>
+                        {{/item.set.items}}
+                    </ul>
+                    <div class="amp-cover-box amp-exit-prompt hidden">
+                        <div class="amp-message">
+                            <span class="amp-message-tagline">Double tap to exit</span>
+                        </div>
+                    </div>
+                    <div class="amp-cover-box amp-double-tap-prompt">
+                        <div class="amp-message">
+                            <span class="amp-message-tagline">Double tap for 360&deg; spin</span>
+                            <div class="amp-message-icon amp-icon-360">{{> icons-360 }}</div>
+                        </div>
+                    </div>
+                {{else}}
+                    {{#if item.media}}
+                        <div class="amp-video-holder" data-amp-width="{{item.vidWidth}}" data-amp-height="{{item.vidHeight}}">
+                            <div class="amp-video amp-hidden">
+                                <video poster="{{item.src}}?{{templates.imageMain}}&w={{item.vidWidth}}&h={{item.vidHeight}}" preload="none">
+                                    {{#item.media}}
+                                        <source data-quality-label="{{profileLabel}}" data-bitrate="{{bitrate}}" data-res="{{profileLabel}}" src="{{src}}" type="{{htmlCodec}}">
+                                    {{/item.media}}
+                                </video>
+                            </div>
+                        </div>
+                    {{else}}
+                        {{#if item.content}}
+                            <div class="amp-webgl  amp-ui-hint" data-amp-webgl="{{item.value}}"></div>
+                            <div class="amp-cover-box amp-double-tap-prompt">
+                                <div class="amp-message">
+                                    <span class="amp-message-tagline">Double tap to activate 3D</span>
+                                    <div class="amp-message-icon amp-icon-webgl">{{> icons-webgl }}</div>
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="amp-image-container">
+                                <span class="amp-centerer"></span>
+                                 {{#if templates.screenWidth}}
+                                    <img data-amp-dimensions='[{"w" : {"domName" : "window", "domProp" : "width"}}]' data-amp-src="{{item.src}}?{{templates.imageMain}}" class="amp-zoomable amp-main-img">
+                                {{else}}
+                                    <img data-amp-src="{{item.src}}?{{templates.imageMain}}" class="amp-zoomable amp-main-img">
+                                {{/if}}
+
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+             {{/if}}
+    {{/if}}
+</li>
