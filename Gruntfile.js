@@ -305,6 +305,12 @@ module.exports = function (grunt) {
                         cwd: 'bower_components/videojs/dist/alt',
                         src: ['video.novtt.min.js'],
                         dest: 'dist/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/common/',
+                        src: ['resSwitcher.min.js'],
+                        dest: 'dist/'
                     }
                 ]
             }

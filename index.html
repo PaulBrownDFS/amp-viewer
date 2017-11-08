@@ -142,9 +142,14 @@
             background-size: 30px 25px;
             padding-left: 45px;
         }
+        .video-js {
+            margin: 50px auto;
+        }
+        body {
+          min-height: auto;
+        }
 
     </style>
-    <!-- video-js-extracted-from-sdk.css styles were extracted from amplience-sdk-client, as they were changed, compared to original styles in v4.12.5 -->
     <link rel="stylesheet" href="dist/amp-dfs-viewer.css">
 </head>
 <body class="amp-body">
@@ -156,10 +161,24 @@
 <div id="customViewer"></div>
 <button id="customViewerSwatch1">customViewerSwatch1</button>
 <div id="qaBreakpoint"></div>
+<div class="videoContainer">
+  <hr>
+  <div class="videoTest">
+    <video id="video2" class="video-js vjs-big-play-centered vjs-default-skin" controls preload="none" width="640" height="360"
+      poster="http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV?w=640">
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+  </div>
+</div>
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="dist/handlebars.runtime.min.js"></script>
 <!-- video.dev.js is v5.8.8 copied from bower_components -->
 <script src="dist/video.novtt.min.js"></script>
+<script src="dist/resSwitcher.min.js"></script>
 <script src="dist/amp-dfs-viewer-libs.min.js"></script>
 <script src="dist/amp-dfs-viewers.min.js"></script>
 
@@ -254,6 +273,37 @@
             account: 'dfs'
         });
     });
+</script>
+<script>
+var video2 = videojs('video2', {
+  plugins: {
+    videoJsResolutionSwitcher: {
+      default: '480',
+      dynamicLabel: true
+    }
+  }
+});
+video2.updateSrc([
+
+  { src: "http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV/webm_480p",
+    type: "video/webm",res: 480,label: "480" },
+
+  { src: "http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV/webm_720p",
+    type: "video/webm",res: 720,label: "hd" },
+
+  { src: "http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV/webm_240p",
+    type: "video/webm",res: 240,label: "240" },
+
+  { src: "http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV/mp4_480p",
+    type: "video/mp4",res: 480,label: "480" },
+
+  { src: "http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV/mp4_720p",
+    type: "video/mp4",res: 720,label: "hd" },
+
+  { src: "http://i1.adis.ws/v/dfs/DFS_NOV_30A_UK_TV/mp4_240p",
+    type: "video/mp4",res: 240,label: "240" }
+
+]);
 </script>
 
 </body>
