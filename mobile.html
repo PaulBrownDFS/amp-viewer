@@ -19,28 +19,30 @@
             font-size: 62.5%
         }
     </style>
-    <link rel="stylesheet" href="dist/video-js-extracted-from-sdk.css">
     <link rel="stylesheet" href="dist/amp-dfs-viewer.css">
 </head>
 <body>
 <div id="customViewer"></div>
 <button id="customViewerSwatch1">customViewerSwatch1</button>
 <button id="customViewerSwatch2">customViewerSwatch2</button>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="dist/handlebars.runtime.min.js"></script>
-<script src="dist/video.dev.js"></script>
-<script src="dist/amp-dfs-viewer-libs.js"></script>
-<script src="dist/amp-dfs-viewers.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
+<script src="dist/handlebars.runtime.min.js"></script>
+<!-- video.dev.js is v5.8.8 copied from bower_components -->
+<!-- <script src="dist/video.novtt.min.js"></script>
+<script src="dist/resSwitcher.min.js"></script> -->
+<script src="dist/videoJsResSwitcher.min.js"></script>
+<script src="dist/amp-dfs-viewer-libs.min.js"></script>
+<script src="dist/amp-dfs-viewers.min.js"></script>
 <script>
     //Sample Normal View DFS Code
     var viewer = amp.createViewer({
         target: document.getElementById('customViewer'),
         mobile:true,
-        rangeName: 'Zinc Leather',
-        productName: '4 Seater Sofa',
+        rangeName: 'Kalamos',
+        productName: 'Large 2 Seater Sofa Bed ',
         locale: 'en-GB',
-        setName: 'zinc_4a_zinc_greycombination_2',
+        setName: 'kalamos_2j_sierracontrast_bournvillecontrast_2',
         templates: {},
         //defaults to dfs
         account: 'dfs',
