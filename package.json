@@ -9,7 +9,7 @@
   "description": "Amplience Standard Viewer",
   "main": "src/",
   "dependencies": {
-    "handlebars": "4.0.1",
+    "handlebars": "4.0.11",
     "jquery": "^2.1.3",
     "jquery-ui": "^1.10.5",
     "amplience-sdk-client": "git+https://github.com/amplience/amplience-sdk-client.git#d4d1f18"

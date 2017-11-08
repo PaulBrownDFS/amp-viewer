@@ -145,7 +145,6 @@
 
     </style>
     <!-- video-js-extracted-from-sdk.css styles were extracted from amplience-sdk-client, as they were changed, compared to original styles in v4.12.5 -->
-    <link rel="stylesheet" href="dist/video-js-extracted-from-sdk.css">
     <link rel="stylesheet" href="dist/amp-dfs-viewer.css">
 </head>
 <body class="amp-body">
@@ -157,10 +156,10 @@
 <div id="customViewer"></div>
 <button id="customViewerSwatch1">customViewerSwatch1</button>
 <div id="qaBreakpoint"></div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="dist/handlebars.runtime.min.js"></script>
-<!-- video.dev.js is v4.12.5 from bower_components -->
-<script src="dist/video.dev.js"></script>
+<!-- video.dev.js is v5.8.8 copied from bower_components -->
+<script src="dist/video.novtt.min.js"></script>
 <script src="dist/amp-dfs-viewer-libs.min.js"></script>
 <script src="dist/amp-dfs-viewers.min.js"></script>
 
@@ -191,10 +190,10 @@
 
     var viewerOptions = {
         target: document.getElementById('customViewer'),
-        rangeName: 'Zinc Leather',
-        productName: '4 Seater Sofa',
+        rangeName: 'Kalamos',
+        productName: 'Large 2 Seater Sofa Bed ',
         locale: 'en-GB',
-        setName: 'zinc_4a_zinc_greycombination_2',
+        setName: 'kalamos_2j_sierracontrast_bournvillecontrast_2',
         //TODO:update default to dfs 404 img
         errImgName: 'img404',
         roundels: [
@@ -247,11 +246,11 @@
         quickViewOne = amp.createViewer({
             quickView: true,
             target: document.getElementById('quickViewer'),
-            rangeName: 'Zinc Leather',
-            productName: 'newwebgl_set',
+            rangeName: 'Kalamos',
+						productName: 'Large 2 Seater Sofa Bed ',
             cacheBust: 1,
             locale: 'en-GB',
-            setName: 'armitage_3b_arizona_silver-grey_2',
+            setName: 'kalamos_2j_sierracontrast_bournvillecontrast_2',
             account: 'dfs'
         });
     });

@@ -302,8 +302,8 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'bower_components/videojs/dist/video-js/',
-                        src: ['video.dev.js'],
+                        cwd: 'bower_components/videojs/dist/alt',
+                        src: ['video.novtt.min.js'],
                         dest: 'dist/'
                     }
                 ]
