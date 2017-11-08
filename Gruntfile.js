@@ -223,7 +223,11 @@ module.exports = function (grunt) {
                     'dist/amp-dfs-viewer-libs.js': [
                         'lib/jquery-ui-1.10.4.custom.min.js',
                         'node_modules/amplience-sdk-client/dist/amplience-sdk-client.js'
-                    ]
+                    ],
+                    'dist/videoJsResSwitcher.min.js': [
+                      'bower_components/videojs/dist/alt/videojs.5.8.8.novtt.min.js',
+                      'src/common/resSwitcher.min.js'
+                      ]
                 }
             }
         },
@@ -303,13 +307,13 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: 'bower_components/videojs/dist/alt',
-                        src: ['video.novtt.min.js'],
+                        src: ['video.novtt.js'],
                         dest: 'dist/'
                     },
                     {
                         expand: true,
                         cwd: 'src/common/',
-                        src: ['resSwitcher.min.js'],
+                        src: ['resSwitcher.js'],
                         dest: 'dist/'
                     }
                 ]
