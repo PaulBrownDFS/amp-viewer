@@ -3,3 +3,5 @@
 
 # Mac OS X hidden files
 .DS_Store
+
+ .vscode/
