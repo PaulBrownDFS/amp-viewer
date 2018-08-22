@@ -1276,6 +1276,7 @@ var jsonp =  amp.jsonp = function(url, name, success, error, transform, timeout)
     }, timeout);
 
     var src = url + "?" + transform + buildQueryString({deep:true, timestamp: movingCacheWindow(), arg: "'"+name+"'", func:"amp.jsonReturn"});
+        src += '&protocol=https';
     var script = amp.get.createScript(src, function(e) {
         amp.jsonReturn(name,{ status:'error',code: 404, message: "Not Found", name: name });
     });
@@ -1636,7 +1637,7 @@ var webCacheSize = function (data) {
      */
     returnAs = function(options, from, to){
         for (var i = 0; i < options.length; i++) {
-            var key = typeof options[i] == "object" && keys(options[i]); 
+            var key = typeof options[i] == "object" && keys(options[i]);
             for(var o in options[i]){
                 if(options[i].hasOwnProperty(o)){
                     for (var c = 0; c < diOptions.length; c++) {
@@ -2049,7 +2050,7 @@ amp.stats.bind = function(o) {
 var aPush = function (obj,fn){
     aEvents[obj] ? aEvents[obj].push(fn) :  aEvents[obj] = [fn];
 };
- 
+
 /**
  * Triggers an event and its callbacks
  * @method event
@@ -3891,13 +3892,13 @@ amp.stats.event = function(dom,type,event,value){
             var i = 0;
             do{
 				var img = $('<img class="amp-zoom-img">');
-				img.css(reset); 
-				this.wrapper.append(img); 
+				img.css(reset);
+				this.wrapper.append(img);
                 this.imgs.push(img);
                 i++;
             }while(i < (this._cycle && this._cycle.len));
 
-       
+
             if(this.options.responsive){
                 this.element.css({ height:'auto', width:'100%', maxWidth:'100%' });
             }
@@ -4041,7 +4042,7 @@ amp.stats.event = function(dom,type,event,value){
                         distanceAllowed = 20;
 
                     this._lastEvent = '';
-                    var start = function(e){ 
+                    var start = function(e){
                         //e.preventDefault();
                         self.parent.on("touchend touchcancel", $.proxy(end,self));
                         this.startTouchEvent = e;
@@ -4430,7 +4431,7 @@ amp.stats.event = function(dom,type,event,value){
                 this._loadImage();
                 return;
             }
- 
+
             if(this._zoomLoaded || this._zoomLoading)
                 return;
 
@@ -4698,7 +4699,7 @@ amp.stats.event = function(dom,type,event,value){
                 var index = $.inArray(current, this.options.zoom);
                 transform = transform[index];
             }
-            url = transform ? this._setTransforms(url, transform) : url; 
+            url = transform ? this._setTransforms(url, transform) : url;
             url = this._setWidth(url, {h:this._originalImage.height * zoomBy, w:this._originalImage.width * zoomBy});
             return url;
         },
@@ -4745,7 +4746,7 @@ amp.stats.event = function(dom,type,event,value){
             var u = url.split('?');
             return u[0];
         },
-        _loadImage:function(){ 
+        _loadImage:function(){
             if(this._imageLoaded || this._imageLoading)
                 return;
 
@@ -4756,7 +4757,7 @@ amp.stats.event = function(dom,type,event,value){
             this.element[0].src = '';
             this.element[0].src = src;
         },
-        _getNaturalSize:function(src){ 
+        _getNaturalSize:function(src){
             return {width: this.element[0].naturalWidth, height: this.element[0].naturalHeight};
         },
         _setTransforms: function(url, transforms){
@@ -5869,7 +5870,7 @@ amp.stats.event = function(dom,type,event,value){
                     return _self._calcSize();
                 }
             }(self),1);
-            
+
             if(this.options.responsive){
                 $(window).on("resize", function(_self) {
                     return function() {
@@ -6081,11 +6082,11 @@ amp.stats.event = function(dom,type,event,value){
                 o = $(e.currentTarget).offset(),
                 mx = coords.x - o.left,
                 my = coords.y - o.top;
-            
+
             if(this._started) {
                 return;
             }
-            
+
             if(this.options.gesture.enabled) {
                 if(e.originalEvent && e.originalEvent.touches && e.originalEvent.touches[0] ) {
                     if (e.originalEvent.touches.length!=this.options.gesture.fingers)
@@ -6841,4 +6842,3 @@ videojs.plugin('resolutions', function(options) {
     });
 });
 }
-

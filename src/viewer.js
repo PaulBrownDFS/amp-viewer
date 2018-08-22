@@ -7,12 +7,12 @@ var IntegrationViewer = require('./integration-viewer/index');
 
 amp.createViewer = function viewerFactory(config) {
     var defaultConfig = {
-        server: '//i1.adis.ws',
+        server: 'https://images.dfs.co.uk',
         errImgName: 'img404',
         account: 'dfs',
         mobile: false,
         quickView: false,
-        debug: false,
+        debug: true,
         rangeName: '',
         productName: '',
         preloadVideos: 'none', // or 'auto' will preload at page load

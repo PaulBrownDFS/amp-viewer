@@ -181,7 +181,7 @@
 <!-- <script src="dist/video.novtt.min.js"></script>
 <script src="dist/resSwitcher.min.js"></script> -->
 <script src="dist/videoJsResSwitcher.min.js"></script>
-<script src="dist/amp-dfs-viewer-libs.min.js"></script>
+<script src="dist/amp-dfs-viewer-libs.min.js?v2.0a"></script>
 <script src="dist/amp-dfs-viewers.min.js"></script>
 
 <script>
@@ -211,16 +211,20 @@
 
     var viewerOptions = {
         target: document.getElementById('customViewer'),
-        rangeName: 'Zinc',
-            productName: '4 Seater Sofa ',
+        rangeName: 'Zircon',
+            productName: '2 Seater Supreme Sofa Bed ',
             locale: 'en-GB',
-            setName: 'zinc_4a_zinc_greycombination_2',
+            setName: 'zircon_2k_zirconplain_grey_2',
         //TODO:update default to dfs 404 img
         errImgName: 'img404',
         roundels: [
-            ["positionOne", "customViewerRoundel expressDelivery", "Express Delivery"],
-            ["positionTwo", "customViewerRoundel handcraftedBritain", "Hand made in Britain"]
-        ],
+					["positionOne", "customViewerRoundel choiceColours", "Choice of Colours"]
+					,
+					["positionTwo", "customViewerRoundel expressDelivery", "Express Delivery"]
+					,
+					["positionThree", "customViewerRoundel handcraftedBritain", "Handcrafted in Britain"]
+
+            ],
         templates: templates,
         account: 'dfs',
         cacheBust: 1,
@@ -267,11 +271,11 @@
         quickViewOne = amp.createViewer({
             quickView: true,
             target: document.getElementById('quickViewer'),
-            rangeName: 'Zinc',
-            productName: '4 Seater Sofa ',                
+            rangeName: 'Zircon',
+            productName: '2 Seater Supreme Sofa Bed ',
             cacheBust: 1,
             locale: 'en-GB',
-            setName: 'zinc_4a_zinc_greycombination_2',
+            setName: 'zircon_2k_zirconplain_grey_2',
             account: 'dfs'
         });
     });
